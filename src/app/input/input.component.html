@@ -1,3 +1,32 @@
-<p>
-  input works!
-</p>
+<div class="row">
+  <div class="row justify-content-md-center">
+    <div class="col-md-lg">
+      <h2>Input Form</h2>
+      <form role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-content">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="mm/dd/yyyy" id="date" name="date" [(ngModel)]="model" ngbDatepicker #date="ngbDatepicker" required>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="date.toggle()" type="button">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="n_days" name="n_days" placeholder="Number of days" min="1" required ngModel>
+          </div>
+          
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="country_code" name="country_code" placeholder="Country Code" ngModel>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn-primary" type="submit" (disabled)="!f.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
