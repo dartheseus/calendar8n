@@ -39,12 +39,6 @@ export class ResultComponent implements OnInit {
     for (let _i = 0; _i < params.n_days; _i++) {
       const day = fromDate.clone();
       day.add(_i, 'days');
-      console.log(day.date());
-      console.log(day.day());
-      console.log(day.format('MMMM YYYY'));
-      dayCalendar = new DayCalendar();
-      dayCalendar.day = day.date();
-      dayCalendar.day_of_the_week = day.day();
       if (day.day() === 0 && _i !== 0) {
         _indexWeeks++;
         monthCalendar.days[_indexWeeks] = new Array();
@@ -57,9 +51,10 @@ export class ResultComponent implements OnInit {
         monthCalendar.days[_indexWeeks] = new Array();
         monthCalendar.name = day.format('MMMM YYYY');
         this.initPadding(day, monthCalendar);
-
       }
-      console.log(monthCalendar);
+      dayCalendar = new DayCalendar();
+      dayCalendar.day = day.date();
+      dayCalendar.day_of_the_week = day.day();
       monthCalendar.days[_indexWeeks].push(dayCalendar);
     }
     // Padding invalid days at the end of the month
@@ -76,8 +71,8 @@ export class ResultComponent implements OnInit {
   }
 
   endPadding(_indexWeeks, dayCalendar, monthCalendar) {
-    if (dayCalendar.day_of_the_week !== 0) {
-      for (let indexDay = dayCalendar.day_of_the_week; indexDay < 7; indexDay++) {
+    if (dayCalendar.day_of_the_week !== 0 && dayCalendar.day_of_the_week !== 6) {
+      for (let indexDay = dayCalendar.day_of_the_week + 1; indexDay < 7; indexDay++) {
         const dc: DayCalendar = new DayCalendar();
         dc.day_of_the_week = indexDay;
         monthCalendar.days[_indexWeeks].push(dc);
