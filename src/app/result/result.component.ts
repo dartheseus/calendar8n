@@ -71,7 +71,7 @@ export class ResultComponent implements OnInit {
   }
 
   endPadding(_indexWeeks, dayCalendar, monthCalendar) {
-    if (dayCalendar.day_of_the_week !== 0 && dayCalendar.day_of_the_week !== 6) {
+    if (dayCalendar.day_of_the_week !== 6) {
       for (let indexDay = dayCalendar.day_of_the_week + 1; indexDay < 7; indexDay++) {
         const dc: DayCalendar = new DayCalendar();
         dc.day_of_the_week = indexDay;
