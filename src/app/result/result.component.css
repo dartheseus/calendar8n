@@ -9,13 +9,13 @@ td.header-days {
   }
 
 td.hidden {
-  background-color: gray;
+  background-color: #CACAC9;
   width: 20px;
   height: 20px;
 }
 
 td.weekends {
-    background-color: yellow;
+    background-color: #E3E711;
     width: 20px;
     height: 20px;
     text-align: center;
@@ -23,13 +23,13 @@ td.weekends {
   }
 
   td.weekdays {
-    background-color: green;
+    background-color: #829570;
     width: 20px;
     height: 20px;
     text-align: center;
   }
 
   td.month-year {
-    background-color: palegreen;
+    background-color: #EDF9DE;
     text-align: center;
   }
