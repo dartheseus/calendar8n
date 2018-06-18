@@ -1,3 +1,22 @@
-<p>
-  result works!
-</p>
+<div class="container">
+    <div class="row" *ngFor="let monthCalendar of monthsToBeDisplayed">
+      <table>
+        <tr>
+          <td class="header-days">S</td>
+          <td class="header-days">M</td>
+          <td class="header-days">T</td>
+          <td class="header-days">W</td>
+          <td class="header-days">T</td>
+          <td class="header-days">F</td>
+          <td class="header-days">S</td>
+        </tr>
+        <tr>
+          <td class="month-year" colspan="7">{{monthCalendar.name}}</td>
+        </tr>
+        <tr *ngFor="let week of monthCalendar.days">
+          <td *ngFor="let day of week" [class.weekdays]="(day.day_of_the_week > 0 && day.day_of_the_week < 6 && day.day != -1)" [class.weekends]="((day.day_of_the_week == 0 || day.day_of_the_week == 6) && day.day != -1)"
+            [class.hidden]="(day.day == -1)">{{day.day == -1 ? '':day.day}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
